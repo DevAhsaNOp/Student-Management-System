@@ -1,0 +1,149 @@
+﻿@model Student_Management_System.Context.result
+
+@{
+    ViewBag.Title = "AddResult";
+}
+
+<h2>AddResult</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.HiddenFor(model => model.RES_id)
+            @Html.LabelFor(model => model.RES_class_id, "RES_class_id", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_class_id, "", new { @class = "text-danger" })
+            <div>
+                @Html.DropDownListFor(model => model.RES_class_id, ViewBag.classname as MultiSelectList, "---Select Class---", new { @class = "form-control lst" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_std_id, "RES_std_id", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_std_id, "", new { @class = "text-danger" })
+            <div>
+                @Html.DropDownListFor(model => model.RES_std_id, ViewBag.std as SelectList, "Select Student", new { @class = "form-control lst" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Exam_type, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.Exam_type, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Exam_type, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_maths_marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_maths_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_maths_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_englishliterature_marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_englishliterature_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_englishliterature_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_englishgrammar_marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_englishgrammar_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_englishgrammar_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_urdu_marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_urdu_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_urdu_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_islamiyat_marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_islamiyat_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_islamiyat_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_Science_marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_Science_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_Science_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_Physics_marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_Physics_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_Physics_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_Chemistry_marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_Chemistry_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_Chemistry_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_History_marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_History_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_History_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_Geography_marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_Geography_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_Geography_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_Computer_marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_Computer_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_Computer_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_activity_marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_activity_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_activity_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_total_marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_total_marks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_total_marks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_percentage, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_percentage, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_percentage, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_grade, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_grade, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_grade, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RES_REmarks, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.RES_REmarks, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.RES_REmarks, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Add Result" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        $(function my() {
+            $(".lst").chosen();
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

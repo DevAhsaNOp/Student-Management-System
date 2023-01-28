@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Student Management Application</title>
+    <title>@ViewBag.Title - SMS</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/bootstrap-chosen.css" rel="stylesheet" />
@@ -329,7 +329,6 @@
     </style>
 </head>
 <body>
-    @Html.Partial("_LoginPartial")
     <div class="sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus icon'></i>
@@ -338,10 +337,10 @@
         </div>
         <ul class="nav-list">
             @*<li>
-                <i class='bx bx-search'></i>
-                <input type="text" placeholder="Search...">
-                <span class="tooltip">Search</span>
-            </li>*@
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Search...">
+                    <span class="tooltip">Search</span>
+                </li>*@
             <li>
                 <a href="@Url.Action("UserDashBoard","User")">
                     <i class='bx bx-grid-alt'></i>
@@ -391,7 +390,9 @@
                         <div class="job">Web designer</div>
                     </div>
                 </div>
-                <i class='bx bx-log-out' id="log_out"></i>
+                <a href="@Url.Action("Logout","User")">
+                    <i class='bx bx-log-out' id="log_out" style="color:white !important;"></i>
+                </a>
             </li>
         </ul>
     </div>

@@ -1,59 +1,98 @@
-﻿@model Student_Management_System.Models.Signup
+﻿@model Student_Management_System.Context.tbl_account
 
 @{
     ViewBag.Title = "Signup";
+    Layout = null;
 }
 
-<h2>Signup</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up SMS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="~/Assests/images/icons/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="~/Assests/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Assests/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Assests/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Assests/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Assests/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Assests/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Assests/css/main.css">
+</head>
+<body>
 
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="~/Assests/images/img-01.png" alt="IMG">
+                </div>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+                @using (Html.BeginForm("Signup", "User", FormMethod.Post, new { @class = "login100-form validate-form" }))
+                {
+                    <span class="login100-form-title">
+                        Member Sign Up
+                    </span>
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    if (@ViewBag.msg != null)
+                    {
+                        <p style="color: red!important;" class="text-center pb-2">@Html.Raw(@ViewBag.msg)</p>
+                    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="wrap-input100 validate-input" data-validate="Valid name is required">
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "input100", @name = "name", @placeholder = "Name" } })
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "input100", @name = "email", @placeholder = "Email" } })
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "input100", @name = "pass", @placeholder = "Password" } })
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="wrap-input100 validate-input" data-validate="Confirm Password is required">
+                        @Html.EditorFor(model => model.Confirmpassword, new { htmlAttributes = new { @class = "input100", @name = "Confirmpassword", @placeholder = "Confirm Password" } })
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Confirmpassword, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Confirmpassword, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Confirmpassword, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Sign Up" class="btn btn-primary" />
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Sign Up
+                        </button>
+                    </div>
+                }
             </div>
         </div>
     </div>
-}
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    <script src="~/Assests/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/Assests/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Assests/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Assests/vendor/select2/select2.min.js"></script>
+    <script src="~/Assests/vendor/tilt/tilt.jquery.min.js"></script>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+    <script src="~/Assests/js/main.js"></script>
+
+</body>
+</html>

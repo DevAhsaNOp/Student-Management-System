@@ -120,44 +120,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Owin">
-      <HintPath>packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="Owin">
-      <HintPath>packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin">
-      <HintPath>packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies">
-      <HintPath>packages\Microsoft.Owin.Security.Facebook.4.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Owin.Security.Cookies">
       <HintPath>packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Google">
-      <HintPath>packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Twitter">
-      <HintPath>packages\Microsoft.Owin.Security.Twitter.4.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
-      <HintPath>packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth">
-      <HintPath>packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -165,10 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Context\class.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
@@ -205,27 +166,49 @@
     <Compile Include="Context\tbl_account.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClassController.cs" />
     <Compile Include="Controllers\ClassRoutineController.cs" />
     <Compile Include="Controllers\FeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\db.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Signup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assests\css\main.css" />
+    <Content Include="Assests\css\util.css" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Assests\fonts\montserrat\OFL.txt" />
+    <Content Include="Assests\images\icons\favicon.ico" />
+    <Content Include="Assests\images\img-01.png" />
+    <Content Include="Assests\js\main.js" />
+    <Content Include="Assests\vendor\animate\animate.css" />
+    <Content Include="Assests\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Assests\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Assests\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Assests\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Assests\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Assests\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Assests\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Assests\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Assests\vendor\bootstrap\js\popper.js" />
+    <Content Include="Assests\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Assests\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Assests\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Assests\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Assests\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Assests\vendor\select2\select2.css" />
+    <Content Include="Assests\vendor\select2\select2.js" />
+    <Content Include="Assests\vendor\select2\select2.min.css" />
+    <Content Include="Assests\vendor\select2\select2.min.js" />
+    <Content Include="Assests\vendor\tilt\tilt.jquery.min.js" />
     <Content Include="Content\bootstrap-chosen.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -299,6 +282,81 @@
     </Content>
     <Content Include="Content\bootstrap-chosen.scss" />
     <Content Include="Content\bootstrap-chosen.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Assests\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="Assests\fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Assests\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Assests\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Assests\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Assests\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Assests\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Assests\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Assests\vendor\bootstrap\css\bootstrap.min.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\chosen.jquery.js" />
     <Content Include="Scripts\chosen.jquery.min.js" />
@@ -324,31 +382,10 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\User\Signup.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\UserDashBoard.cshtml" />
@@ -372,6 +409,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

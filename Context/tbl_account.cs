@@ -11,13 +11,15 @@ namespace Student_Management_System.Context
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_account
     {
         public int userid { get; set; }
         public string name { get; set; }
         public string email { get; set; }
         public string password { get; set; }
+        [Display(Name = "Confirm Password")]
         public string Confirmpassword { get; set; }
     }
 }

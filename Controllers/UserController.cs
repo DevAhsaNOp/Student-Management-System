@@ -1,8 +1,5 @@
-﻿using Student_Management_System.Models;
-using System;
-using System.Collections.Generic;
+﻿using Student_Management_System.Context;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -10,64 +7,98 @@ namespace Student_Management_System.Controllers
 {
     public class UserController : Controller
     {
-        db obj = new db();
+        studentmanagementsystem_Entities1 dbObj = new studentmanagementsystem_Entities1();
         // GET: User
+        [Authorize]
         public ActionResult Index()
         {
             if (Session["UserName"] != null)
-                return RedirectToAction("UserDashBoard");
+                return View("UserDashBoard");
             return View();
         }
 
-        // To display and create the view || or used for UI for Signup Page
+        [AllowAnonymous]
         public ActionResult Signup()
         {
-            if (Session["UserName"] != null)
-                return RedirectToAction("UserDashBoard");
             return View();
         }
 
         [HttpPost]
-        // To Submit the view and works on the behind logics that are to be implemented 
-        public ActionResult Signup(Signup model)
+        [AllowAnonymous]
+        public ActionResult Signup(tbl_account model)
         {
-            Signup s = new Signup();
-            s.name = model.name;
-            s.email = model.email;
-            s.password = model.password;
-            s.Confirmpassword = model.Confirmpassword;
-            obj.Signups.Add(s);                         // Adding the data into tbl_account table 
-            obj.SaveChanges();
-            return RedirectToAction("Login");
-        }
-
-        public ActionResult Login()
-        {
-            if (Session["UserName"] != null)
-                return RedirectToAction("UserDashBoard");
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Login(Signup model)
-        {
-            //Checking the Signup class data with model class or you may say finding the data in the database of the given login credentials 
-            Signup s = obj.Signups.Where(a => a.email.Equals(model.email) && a.password.Equals(model.password)).SingleOrDefault();
-            if (s != null)
+            if (!ModelState.IsValid)
             {
-                //Response.Cookies["UserID"].Value = s.userid.ToString();
-                //Response.Cookies["UserName"].Value = s.name.ToString();
-                Session["UserID"] = s.userid.ToString();
-                Session["UserName"] = s.name.ToString();
-                return RedirectToAction("UserDashBoard");
+                ViewBag.msg = "Please enter the details to Sign Up!";
+                model = null;
+                return View("Signup");
             }
             else
             {
-                ViewBag.msg = "Invalid Email or Password!";
+                if (model != null)
+                {
+                    dbObj.tbl_account.Add(model);                         // Adding the data into tbl_account table 
+                    dbObj.SaveChanges();
+                    ViewBag.msg = "Account created successfully!";
+                    model = null;
+                    return View("Login");
+                }
+                else
+                {
+                    ViewBag.msg = "Please enter the details to Sign Up!";
+                    model = null;
+                    return View("Signup");
+                }
             }
+        }
+
+        [AllowAnonymous]
+        public ActionResult Login()
+        {
+            if (Session["UserName"] != null)
+                return View("UserDashBoard");
             return View();
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Login(tbl_account model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.msg = "Please enter the details to Login!";
+                model = null;
+                return View();
+            }
+            else
+            {
+                if (model != null)
+                {
+                    tbl_account s = dbObj.tbl_account.Where(a => a.email.Equals(model.email) && a.password.Equals(model.password)).SingleOrDefault();
+                    if (s != null)
+                    {
+                        Session["UserID"] = s.userid.ToString();
+                        Session["UserName"] = s.name.ToString();
+                        FormsAuthentication.SetAuthCookie(model.email, false);
+                        return Redirect("UserDashBoard");
+                    }
+                    else
+                    {
+                        ViewBag.msg = "Invalid Email or Password!";
+                        model = null;
+                    }
+                    return View();
+                }
+                else
+                {
+                    ViewBag.msg = "Please enter the details to Login!";
+                    model = null;
+                    return View("Login");
+                }
+            }
+        }
+
+        [Authorize]
         public ActionResult UserDashBoard()
         {
             return View();
@@ -77,7 +108,7 @@ namespace Student_Management_System.Controllers
         {
             Session.Abandon();
             FormsAuthentication.SignOut();
-            return RedirectToAction("Login");
+            return View("Login");
         }
     }
 }

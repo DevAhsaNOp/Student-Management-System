@@ -17,6 +17,11 @@
     <link rel="stylesheet" type="text/css" href="~/Assests/vendor/select2/select2.min.css">
     <link rel="stylesheet" type="text/css" href="~/Assests/css/util.css">
     <link rel="stylesheet" type="text/css" href="~/Assests/css/main.css">
+    <style>
+        #show_password {
+            cursor: pointer !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -47,10 +52,13 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "input100", @name = "pass", @placeholder = "Password" } })
+                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "input100", @name = "pass", @placeholder = "Password", @type = "password" } })
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                        <span id="show_password" style="position: absolute; top: 27%; left: 90%;">
+                            <span class="fa fa-eye-slash PLicon"></span>
                         </span>
                     </div>
 
@@ -60,16 +68,7 @@
                         </button>
                     </div>
 
-                    <div class="text-center p-t-12">
-                        <span class="txt1">
-                            Forgot
-                        </span>
-                        <a class="txt2" href="#">
-                            Username / Password?
-                        </a>
-                    </div>
-
-                    <div class="text-center p-t-136">
+                    <div class="text-center p-t-50">
                         <a class="txt2" href="@Url.Action("Signup","User")">
                             Create your Account
                             <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
@@ -89,6 +88,17 @@
         $('.js-tilt').tilt({
             scale: 1.1
         })
+
+        $(document).ready(function () {
+            $('#show_password').hover(function show() {
+                $('#password').attr('type', 'text');
+                $('.PLicon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+            },
+                function () {
+                    $('#password').attr('type', 'password');
+                    $('.PLicon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+                });
+        });
     </script>
     <script src="~/Assests/js/main.js"></script>
 

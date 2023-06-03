@@ -17,7 +17,8 @@ namespace Student_Management_System.Controllers
         [HttpGet]
         public ActionResult AddClass()
         {
-            return View();
+            @class cls = new @class();
+            return View(cls);
         }
 
 

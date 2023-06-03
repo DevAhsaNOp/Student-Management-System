@@ -20,7 +20,8 @@ namespace Student_Management_System.Controllers
         [AllowAnonymous]
         public ActionResult Signup()
         {
-            return View();
+            tbl_account Account = new tbl_account();
+            return View(Account);
         }
 
         [HttpPost]
@@ -55,9 +56,10 @@ namespace Student_Management_System.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
+            tbl_account Account = new tbl_account();
             if (Session["UserName"] != null)
                 return View("UserDashBoard");
-            return View();
+            return View(Account);
         }
 
         [HttpPost]

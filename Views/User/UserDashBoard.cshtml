@@ -2,3 +2,7 @@
     ViewBag.Title = "Dashboard";
 }
 <div class="text">Dashboard</div>
+@if (Session["UserName"] != null)
+{
+    <h3>Welcome @Session["UserName"].ToString()</h3>
+}
